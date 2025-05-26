@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <title>MINDGRID.Calendar</title>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="inner">
+        <div class="logo">
+            <a href="{{ url_for('home') }}"><img src="/static/images/logo.png" alt="brand logo"></a>
+        </div>
+        <nav>
+            <li><span><a href="{{ url_for('calendar_view') }}">Calendar</a></span></li>
+            <li><span><a href="{{ url_for('task') }}">Task Manager</a></span></li>
+            <li><span><a href="#">Goal Setting</a></span></li>
+            <li><span><a href="{{ url_for('about') }}">About</a></span></li>
+            <li><span><a href="#">Friends</a></span></li>
+            <li><span><a href="{{ url_for('register') }}">Sign Up</a></span></li>
+            <li><span><a href="{{ url_for('login') }}" class="button">Log In</a></span></li>
+        </nav>
+    </div>
+</header>
+
+<!-- Page Title -->
+<p class="page-title">Calendar for {{ year }}</p>
+
+<!-- Year Navigation -->
+<div class="calendar-controls">
+    <a href="{{ url_for('calendar_view', year=year - 1) }}" class="btn">← Previous Year</a>
+    <a href="{{ url_for('calendar_view', year=year + 1) }}" class="btn">Next Year →</a>
+</div>
+
+<!-- All Months -->
+<div class="year-calendar">
+    {% for month in months %}
+    <div class="month-container">
+        <h2>{{ month.name }}</h2>
+        <div class="calendar-grid">
+            <div class="calendar-row header">
+                {% for day in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] %}
+                    <div class="calendar-cell header-cell">{{ day }}</div>
+                {% endfor %}
+            </div>
+
+            {% for week in month.weeks %}
+            <div class="calendar-row">
+                {% for day in week %}
+                    {% if day != 0 %}
+                        <div class="calendar-cell">
+                            <strong>{{ day }}</strong>
+                            {% if day in month.events %}
+                                <div class="event">{{ month.events[day] }}</div>
+                            {% endif %}
+                            <form method="POST" class="event-form">
+                                <input type="hidden" name="day" value="{{ day }}">
+                                <input type="hidden" name="month" value="{{ month.number }}">
+                                <input type="text" name="title" placeholder="Add event" required>
+                                <button type="submit">+</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <div class="calendar-cell empty"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footerContainer">
+        <div class="footerNav">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Our Team</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footerBottom">
+        <p>&copy;2025 Designed by <span class="designer">NCO</span></p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,516 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo img {
+    height: 40px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* Button Style */
+nav a.button {
+    background-color: #007bff;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+nav a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header{
+        position: static
+    }
+
+    .inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    nav li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    nav a.button {
+        text-align: center;
+    }
+}
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+/* Optional styling */
+.footerContainer {
+    margin-bottom: 10px;
+}
+
+.footerNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerNav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footerNav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footerNav ul li a:hover {
+    color: #00bcd4;
+}
+
+.footerBottom {
+    font-size: 14px;
+}
+
+.footerBottom .designer {
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+.para{
+    width:100%;
+    text-align: center;
+    margin: 10px;
+}
+
+/* Container for input and button */
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem auto;
+    max-width: 600px;
+    padding: 0 1rem;
+}
+
+/* Text input */
+#taskInput {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+#taskInput:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Add Task button */
+#addTaskBtn {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addTaskBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Task List */
+#todoList {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem auto;
+    max-width: 600px;
+    padding: 0 1rem;
+}
+
+#todoList li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    #addTaskBtn {
+        width: 100%;
+    }
+}
+
+/* Task List Styling */
+.task-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.task-item:hover {
+    background: #f0f0f0;
+}
+
+.delete-btn {
+    text-decoration: none;
+    color: #ff4d4d;
+    font-size: 18px;
+    padding: 4px 8px;
+    transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: #e60000;
+}
+
+.no-tasks {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+
+
+.page-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 1rem;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* Optional: underline effect */
+.page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #007bff;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+.about-mindgrind {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-left: 6px solid #5e60ce;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-mindgrind h2 {
+  color: #343a40;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.about-mindgrind p {
+  color: #495057;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ===== Calendar Layout ===== */
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.calendar-controls .btn {
+    padding: 0.5rem 1rem;
+    background-color: #3e8e41;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
+}
+
+.calendar-controls .btn:hover {
+    background-color: #367636;
+}
+
+/* Grid container */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Calendar cells */
+.calendar-cell {
+    background-color: #fff;
+    padding: 0.75rem;
+    min-height: 100px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.calendar-row {
+    display: contents;
+}
+
+.header-cell {
+    background-color: #f4f4f4;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.calendar-cell strong {
+    font-size: 1rem;
+    color: #3e8e41;
+}
+
+.calendar-cell.empty {
+    background-color: #f9f9f9;
+}
+
+/* Event text */
+.event {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.25rem;
+    background: #e7f7e7;
+    padding: 4px 6px;
+    border-left: 3px solid #3e8e41;
+    border-radius: 4px;
+}
+
+/* Event form */
+.event-form {
+    margin-top: auto;
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.event-form input[type="text"] {
+    flex: 1;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+.event-form button {
+    padding: 4px 8px;
+    background-color: #3e8e41;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.event-form button:hover {
+    background-color: #367636;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-container label {
+    font-weight: 500;
+}
+
+.form-container input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-container button {
+    padding: 0.6rem;
+    background-color: #3e8e41;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #367636;
+}
+
+.year-selector {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.year-selector input {
+    padding: 8px;
+    font-size: 16px;
+    width: 100px;
+    text-align: center;
+}
+
+.year-selector .btn {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}
